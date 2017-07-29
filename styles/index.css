@@ -109,6 +109,7 @@ header .soso_box input {
   box-sizing: border-box;
   padding: 10px 8px;
   padding-bottom: 4rem;
+  margin: 0 auto;
 }
 .hot .hot-list {
   list-style: none;
