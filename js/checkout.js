@@ -3,7 +3,7 @@
  * */
 $('.selcted-address').click(function () {
   $('.page-order').css({"display":"none"});
-   $('.page-address').css({"display":"block","top":"0","left":"0","transition":"left 0.5s linear"});
+   $('.page-address').css({"display":"block","top":"0","left":"0","transition":"all 0.5s linear"});
 });
 /**
  * 点击返回上一页
@@ -11,18 +11,19 @@ $('.selcted-address').click(function () {
 $('#back').click(function () {
   // console.log('a');
   $('.page-address').css({"display":"none"});
-  $('.page-order').css({"display":"block","top":"0","left":"0","transition":"left 0.5s linear"});
+  $('.page-order').css({"display":"block","top":"0","left":"0","transition":"all 0.5s linear"});
 });
+
 $('.page-newadd .back').click(function () {
   $('.page-newadd').css({"display":"none"});
-  $('.page-address').css({"display":"block","top":"0","left":"0","transition":"left 0.5s linear"});
+  $('.page-address').css({"display":"block","top":"0","left":"0","transition":"all 0.5s linear"});
 });
 /**
  * 前往新增地址页
  * */
 $('.addBtn').click(function () {
   $('.page-address').css({"display":"none"});
-  $('.page-newadd').css({"display":"block","top":"0","left":"0","transition":"left 0.5s linear"});
+  $('.page-newadd').css({"display":"block","top":"0","left":"0","transition":"all 0.5s linear"});
 });
 
 /**
@@ -35,7 +36,7 @@ function updateUserAddress() {
     var str = '';
     for(var i=0; i<response.data.length; i++){
       var obj = response.data[i];
-      str += `
+    str += `
       <ul>
         <li class="item" address-id="${obj.address_id}">
           <p>
@@ -50,8 +51,8 @@ function updateUserAddress() {
         </li>
       </ul>
     `;
-    }
-    $('.add-list').html(str);
+  }
+  $('.add-list').html(str);
     delAddr();
     chooseAddr();
   });
@@ -76,8 +77,8 @@ $('.save-button').click(function () {
     address: _address,
     zip_code: _zip_code
   },function () {
+    $('.page-address').css({"display":"block","top":"0","left":"0","transition":"all 0.5s linear"});
     $('.page-newadd').css({"display":"none"});
-    $('.page-address').css({"display":"block","top":"0","left":"0","transition":"left 0.5s linear"});
     updateUserAddress();
   })
 });
@@ -100,7 +101,6 @@ function delAddr() {
  * */
 function chooseAddr() {
   var checkBox = $('.check-box');
-   // checkBox.eq(0).prop("checked",true);
   for(var i=0; i<checkBox.length; i++) {
     checkBox.eq(i).click(function () {
       for (var j = 0; j < checkBox.length; j++) {
@@ -111,13 +111,15 @@ function chooseAddr() {
       var _p_item = obj.getElementsByClassName('p_item')[0].innerHTML;
       var _p_address = obj.getElementsByClassName('p_address')[0].innerHTML;
       var _addrID = obj.getAttribute('address-id')
-      console.log(_addrID);
       shop.base.storage.setItem("address-id",_addrID);
       var content = `
            <span>${_p_item}</span>
            <span>${_p_address}</span>
         `;
       $('.selcted-address').html(content);
+
+      $('.page-order').css({"display":"block","top":"0","left":"0","transition":"all 0.5s linear"});
+      $('.page-address').css({"display":"none"});
     })
   }
 }
@@ -137,6 +139,7 @@ function cartList() {
           </p>
       `;
 
+
     $('#orderList .order-hd').html(goodsNum);
     var content = '';
     for(var i=0; i<response.data.length; i++){
@@ -149,7 +152,7 @@ function cartList() {
               </div>
               <div class="proW">
                 <p class="goods-name">${obj.goods_name}</p>
-                <p class="priceW"><span class="price">$${obj.goods_price}</span><span class="num">x ${obj.goods_number}</span></p>
+                <p class="priceW"><span class="price">￥${obj.goods_price}</span><span class="num">x ${obj.goods_number}</span></p>
               </div>
             </div>
           </li>
@@ -157,6 +160,10 @@ function cartList() {
     }
     $('#orderList ul').html(content);
     $('.realPay span em').append('￥'+ _total);
+    if(response.data.length == 0){
+      $('#orderList ul').html(`<li style="text-align: center;padding-top: 4rem;"><span>购物车中没有商品!</span></li>`);
+      return
+    }
   })
 }
 /**
@@ -170,10 +177,10 @@ $('.submit').click(function () {
     "total_prices": total
   },function (response) {
     console.log(response);
-    // if(){
+      if(response.code == 2002)return;
       shop.base.storage.setItem("total",0);
-      // $('.add-success').show(0).delay(2500).hide(0);
-      location.href = "/suyi/moi-shop/";
-    // }
+      $('.add-success').show(0).delay(2500).hide(0);
+      // location.href = "/suyi/moi-shop/";
+      location.reload();
   });
 });

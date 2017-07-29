@@ -116,8 +116,8 @@ window.shop = {
       $.get(shop.config.API_PREFIX + 'api_useraddress.php?token=' + shop.base.business.getToken(), callback, 'json');
     },
     //添加用户地址
-    addUserAddress: function(obj){
-      $.post(shop.config.API_PREFIX + 'api_useraddress.php?status=add&token=' + shop.base.business.getToken(), obj, 'json');
+    addUserAddress: function(obj,callback){
+      $.post(shop.config.API_PREFIX + 'api_useraddress.php?status=add&token=' + shop.base.business.getToken(), obj,callback, 'json');
     },
     //删除用户地址
     delteUserAddress: function(address_id,callback){

@@ -45,6 +45,7 @@ $(function() {
 //  事件委托
     $('#good-list').click(function(event) {
     	console.log("编辑");
+    	// this.bgColor = 'red';
     	 //编辑事件
     	if (event.target.className === 'rediger') {
     		var oCount = event.target.nextSibling.nextSibling;

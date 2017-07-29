@@ -227,15 +227,15 @@ header .headW .sitebar img {
 	top: 35%;
 	transform: translateX(-50%);
 	width: 80%;
-	height: 30%;
+	height: 13.6rem;
 	background: white;
 	display: none;
 }
 .confirmerRemove .content {
-    height: 10rem;
+    height: 9rem;
     width: 100%;
-    font-size: 1.5rem;
-    line-height: 10rem;
+    font-size: 1rem;
+    line-height: 9rem;
     vertical-align: middle;
     text-align: center;
     padding: 0 2.1rem;
@@ -308,7 +308,6 @@ footer .total { width: 50%; color: red;font-size: 20px;}
 footer .submit {
   width: 25%;
   background: #f00;
-  border: none;
   color: #fff;
   font-weight: 700;
 }

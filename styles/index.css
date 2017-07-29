@@ -84,7 +84,8 @@ header .soso_box input {
   outline: none;
   font-size: 12px;
   position: relative;
-  top: 4px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 /********************carousel*********************/
 .carousel {

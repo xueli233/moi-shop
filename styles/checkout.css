@@ -88,6 +88,13 @@ body, html{
   background: url(../images/arrow_r.png) no-repeat;
   background-size: 15px 15px;
 }
+.page-order .content .selcted-address span{
+  width: 40%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  text-overflow: ellipsis;
+}
 /**********************page-order => orderList*********************/
 .orderList .order-hd {
   width: 100%;
@@ -229,6 +236,7 @@ body, html{
 }
 .add-list {
   width: 100%;
+  height:auto;
 }
 .add-list .item {
   height: auto;

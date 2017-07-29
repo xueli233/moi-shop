@@ -55,7 +55,9 @@ header .soso_box {
   border-radius: 8px;
   box-shadow:0 1px 1px rgba(111,111,111,.8);
   position: relative;
-  top: 8px;
+  /*top: 8px;*/
+  top: 50%;
+  transform: translateY(-50%);
   background-color: #fff;
   padding-left: 30px;
   box-sizing: border-box;

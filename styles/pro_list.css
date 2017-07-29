@@ -91,7 +91,8 @@ header .soso_box::before {
 header .soso_box input {
   position: absolute;
   top: 50%;
-  margin-top: -8px;
+  /*margin-top: -8px;*/
+  transform: translateY(-50%);
   padding-left: 10px;
   border: none;
   outline: none;
