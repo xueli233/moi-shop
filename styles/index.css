@@ -93,6 +93,7 @@ header .soso_box input {
 }
 .carousel .swiper-container{
   max-height: 10rem;
+  max-width: 540px;
 }
 .carousel img {
   width: 100%;
