@@ -180,8 +180,10 @@ header .soso_box input {
   border-top: 1px solid #ddd;
   background: #fff;
   z-index: 666;
-  max-width: 640px;
+  max-width: 540px;
   bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .newbuttonTab .tabL {
   width: 25%;
