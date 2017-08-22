@@ -43,8 +43,8 @@ $(function() {
          showSum();
     }
 //  事件委托
-    $('#good-list').addEventListener("touchstart",function(event) {
-    	console.log("编辑");
+    $('#good-list').click(function(event) {
+    	// console.log("编辑");
     	// this.bgColor = 'red';
     	 //编辑事件
     	if (event.target.className === 'rediger') {
@@ -122,7 +122,7 @@ $(function() {
         return;
     	}
     	
-    },false);
+    });
     var str = 1;
     $('#opter').click(function() {
     	if (str === 1) {
