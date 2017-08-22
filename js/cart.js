@@ -43,7 +43,7 @@ $(function() {
          showSum();
     }
 //  事件委托
-    $('#good-list').click(function(event) {
+    $('#good-list').addEventListener("touchstart",function(event) {
     	console.log("编辑");
     	// this.bgColor = 'red';
     	 //编辑事件
@@ -122,7 +122,7 @@ $(function() {
         return;
     	}
     	
-    });
+    },false);
     var str = 1;
     $('#opter').click(function() {
     	if (str === 1) {
